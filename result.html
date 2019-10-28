@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>在线显示</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
     <script src="./js/echarts.js"></script>
     <script src="./js/jquery-3.4.1.js"></script>
     <style>
@@ -29,15 +30,38 @@
             margin-left: 200px;
             float: left;
         }
+        #seacher{
+            width: 100%;
+            height: 100px;
+        }
     </style>
 </head>
 
 <body>
+    
+        <form class="layui-form" action="" style="margin: 30px 0;">
+            <div class="layui-form-item" style="width: 80%; margin: 0 10%;">
+                <label class="layui-form-label">选择题目</label>
+                <div class="layui-input-block" >
+                    <select name="interest" lay-filter="aihao">
+                        <option value=""></option>
+                        <option value="0">通常你是通过什么途径知道发生了地震？</option>
+                        <option value="1" selected="">通常你是通过什么途径知道发生了地震？</option>
+                        <option value="2">通常你是通过什么途径知道发生了地震？</option>
+                        <option value="3">通常你是通过什么途径知道发生了地震？</option>
+                        <option value="4">通常你是通过什么途径知道发生了地震？</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    
     <div id="singletonBar"></div>
     <div id="singletonPie"></div>
     <div id="singletonLine"></div>
 </body>
+<script src="./layui/layui.js"></script>
 <script type="text/javascript">
+
     var singletonPie = echarts.init(document.getElementById('singletonPie'));
     var singletonBar = echarts.init(document.getElementById('singletonBar'));
     var singletonLine = echarts.init(document.getElementById('singletonLine'));
@@ -147,7 +171,9 @@
             ]
         });
     });
-
+    layui.use(['form'], function () {
+        var form = layui.form;
+    })
 
 </script>
 
